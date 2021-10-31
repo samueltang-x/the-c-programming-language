@@ -1,7 +1,7 @@
 dir_guard = @mkdir -p $(@D)
 
-TARGAT =  ./build/day-of-year
-SRC = day-of-year.c
+TARGAT = ./build/hello
+SRC = hello.c
 
 $(TARGAT): $(SRC)
 	$(dir_guard)

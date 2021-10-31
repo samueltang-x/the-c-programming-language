@@ -31,6 +31,15 @@ void month_day(int year, int yearday, int *pmonth, int *pday) {
 
 char *month_name(int);
 
+void show_help_msg(char *name) {
+    printf("Usage:\n");
+    printf("    %s (<year> <day-of-year> | <year> <month> <day>)\n", name);
+    printf("\n");
+    printf("    Options:\n");
+    printf("        <year> <day-of-year>:\tshow the month and day for the given day-of-year\n");
+    printf("        <year> <month> <day>:\tshow the day-of-year for the given month and day\n");
+}
+
 int main(int argc, char **argv) {
     if (argc == 3) {
         int month, day;
@@ -50,14 +59,7 @@ int main(int argc, char **argv) {
         return EXIT_SUCCESS;
     }
 
-    printf("Usage: \n\
-    %s (<year> <day-of-year> | <year> <month> <day>)\n\
-\n\
-    Options:\n\
-        <year> <day-of-year>:\tshow the month and day for the given day-of-year\n\
-        <year> <month> <day>:\tshow the day-of-year for the given month and day\n\
-\n", argv[0]);
-
+    show_help_msg(argv[0]);
     return EXIT_SUCCESS;
 }
 
