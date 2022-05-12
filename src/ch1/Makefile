@@ -1,10 +1,21 @@
 dir_guard = @mkdir -p $(@D)
 
-TARGAT = ./build/hello
-SRC = hello.c
+BUILD_DIR = build
 
-$(TARGAT): $(SRC)
+hello = ${BUILD_DIR}/hello
+fct = ${BUILD_DIR}/fahrenheit-celsius-table
+
+all: ${hello} ${fct}
+.PHONY: all
+
+
+${hello}: hello.c
 	$(dir_guard)
-	gcc $(SRC) -o $(TARGAT)
+	cc $< -o $@
+
+${fct}: fahrenheit-celsius-table.c
+	$(dir_guard)
+	cc $< -o $@
+
 clean:
-	rm -fv $(TARGAT)
+	rm -rv build
